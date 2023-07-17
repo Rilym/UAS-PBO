@@ -44,12 +44,12 @@ public class Main {
 
     public static void showMenu() {
         System.out.println("================================");
-        System.out.println("1. show cars list");
-        System.out.println("2. show car owners list");
-        System.out.println("3. add car owner");
-        System.out.println("4. service car");
-        System.out.println("5. return car");
-        System.out.println("6. add car");
+        System.out.println("1. List Mobil");
+        System.out.println("2. list Pemilik Mobil");
+        System.out.println("3. Tambah Pemilik Mobil");
+        System.out.println("4. service Mobil");
+        System.out.println("5. Mengembalikan Mobil");
+        System.out.println("6. Menambah Mobil");
         System.out.println("================================");
     }
 
@@ -90,10 +90,10 @@ public class Main {
     public static int chooseMenu() {
         int selectedMenu = 0;
         try {
-            System.out.print("choose menu : ");
+            System.out.print("Pilih menu : ");
             selectedMenu = scan.nextInt();
         } catch (InputMismatchException e) {
-            System.out.println("Invalid Input. Please enter a number.");
+            System.out.println("Input Invalid, dimohon menginput angka.");
             scan.next(); // clear the scanner buffer
         }
         return selectedMenu;
@@ -117,27 +117,27 @@ public class Main {
         System.out.print("id : ");
         carOwner.setId(scan.nextInt());
 
-        System.out.print("name : ");
+        System.out.print("nama : ");
         carOwner.setName(scan.next());
 
         bengkel.addCarOwner(carOwner);
     }
 
     public static void serviceCar() {
-        System.out.print("car owner id : ");
+        System.out.print("Id Pemilik Mobil  : ");
         int carOwnerId = scan.nextInt();
 
-        System.out.print("car id : ");
+        System.out.print("Id Mobil : ");
         int carId = scan.nextInt();
 
         bengkel.serviceCar(carId, carOwnerId);
     }
 
     public static void returnCar() {
-        System.out.print("car owner id : ");
+        System.out.print("Id Pemilik Mobil : ");
         int carOwnerId = scan.nextInt();
 
-        System.out.print("car id : ");
+        System.out.print("Id Mobil : ");
         int carId = scan.nextInt();
 
         bengkel.returnCar(carId, carOwnerId);
@@ -148,7 +148,7 @@ public class Main {
         System.out.print("id : ");
         car.setId(scan.nextInt());
 
-        System.out.print("brand : ");
+        System.out.print("Merek : ");
         car.setBrand(scan.next());
 
         bengkel.addCar(car);

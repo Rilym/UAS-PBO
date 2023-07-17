@@ -2,10 +2,10 @@ import java.util.ArrayList;
 class CarOwner {
     private int id;
     private String name;
-    private ArrayList<Car> carsOwned;
+    private final ArrayList<Car> carsOwned;
 
     public CarOwner() {
-        this.carsOwned = new ArrayList<Car>();
+        this.carsOwned = new ArrayList<>();
     }
 
     public int getId() {
@@ -28,7 +28,6 @@ class CarOwner {
         return carsOwned;
     }
 
-    public Car getCarById(int carId) {
-        return null;
+    public void getCarById() {
     }
 }

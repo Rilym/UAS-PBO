@@ -4,10 +4,8 @@ interface Borrowable {
 }
 
 abstract class Bengkel implements Borrowable {
-    public ArrayList<Car> cars = new ArrayList<Car>();
-    public ArrayList<CarOwner> carOwners = new ArrayList<CarOwner>();
-    public abstract boolean isCarOwnedByOwner(int carId, int ownerId);
-
+    public ArrayList<Car> cars = new ArrayList<>();
+    public ArrayList<CarOwner> carOwners = new ArrayList<>();
 
     public abstract void addCarOwner(CarOwner carOwner);
 
@@ -27,7 +25,7 @@ abstract class Bengkel implements Borrowable {
                 return carOwner;
             }
         }
-        throw new Exception("Car owner with id " + id + " not found");
+        throw new Exception("Pemilik Mobil dengan Id " + id + " Tidak Ditemukan");
     }
 
     protected Car getCarById(int id) throws Exception {
@@ -36,6 +34,6 @@ abstract class Bengkel implements Borrowable {
                 return car;
             }
         }
-        throw new Exception("Car with id " + id + " not found");
+        throw new Exception("Mobil dengan Id " + id + " tidak ditemukan");
     }
 }

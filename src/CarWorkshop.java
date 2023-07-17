@@ -4,22 +4,12 @@ class CarWorkshop extends Bengkel {
         super();
     }
     @Override
-    public boolean isCarOwnedByOwner(int carId, int ownerId) {
-        try {
-            CarOwner carOwner = getCarOwnerById(ownerId);
-            return carOwner.getCarById(carId) != null;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    @Override
     public void addCarOwner(CarOwner carOwner) {
         if (!isCarOwnerIdExist(carOwner.getId())) {
             this.carOwners.add(carOwner);
-            System.out.println("Car owner successfully added");
+            System.out.println("Pemilik Mobil baru berhasil ditambahkan");
         } else {
-            System.out.println("Car owner with ID " + carOwner.getId() + " already exists");
+            System.out.println("Pemilik Mobil dengan ID ini" + carOwner.getId() + " Telah Tersedia");
         }
     }
 
@@ -39,9 +29,9 @@ class CarWorkshop extends Bengkel {
 
             CarOwner carOwner = this.getCarOwnerById(carOwnerId);
             int carOwnerIndex = this.getCarOwnerIndex(carOwner);
-            this.cars.remove(car);
+
             this.carOwners.get(carOwnerIndex).getCarsOwned().add(car);
-            System.out.println("Car with id " + car.getId() + " has been successfully serviced by car owner with ID " + carOwner.getId());
+            System.out.println("Mobil dengan Id " + car.getId() + " milik " + carOwner.getId() + " telah selesai di service");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -49,18 +39,19 @@ class CarWorkshop extends Bengkel {
     @Override
     public void returnCar(int carId, int carOwnerId) {
         try {
+            Car car = this.getCarById(carId);
             CarOwner carOwner = this.getCarOwnerById(carOwnerId);
             int carOwnerIndex = this.getCarOwnerIndex(carOwner);
-
-            Car car = this.carOwners.get(carOwnerIndex).getCarById(carId);
+            this.cars.remove(car);
+            this.carOwners.get(carOwnerIndex).getCarById();
 
             if (car == null) {
-                throw new Exception("Car with id " + carId + " is not owned by car owner with ID " + carOwner.getId());
+                throw new Exception("Mobil dengan Id " + carId + " tidak dimiliki oleh pemilik mobil ID " + carOwner.getId());
             }
 
             this.cars.add(car);
             this.carOwners.get(carOwnerIndex).getCarsOwned().remove(car);
-            System.out.println("Car with id " + car.getId() + " has been successfully returned by car owner with ID " + carOwner.getId());
+            System.out.println("Mobil dengan Id " + car.getId() + " telah dikembailkan ke pemilik mobil dengan ID " + carOwner.getId());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
