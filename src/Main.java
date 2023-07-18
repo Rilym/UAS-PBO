@@ -20,11 +20,11 @@ public class Main {
             } else if (selectedMenu == 3) {
                 addCarOwner();
             } else if (selectedMenu == 4) {
-                serviceCar();
-            } else if (selectedMenu == 5) {
-                returnCar();
-            }else if (selectedMenu == 6) {
                 addCar();
+            } else if (selectedMenu == 5) {
+                serviceCar();
+            }else if (selectedMenu == 6) {
+                returnCar();
             } else {
                 System.out.println("wrong input");
             }
@@ -47,9 +47,9 @@ public class Main {
         System.out.println("1. List Mobil");
         System.out.println("2. list Pemilik Mobil");
         System.out.println("3. Tambah Pemilik Mobil");
-        System.out.println("4. service Mobil");
-        System.out.println("5. Mengembalikan Mobil");
-        System.out.println("6. Menambah Mobil");
+        System.out.println("4. Menambah Mobil");
+        System.out.println("5. service Mobil");
+        System.out.println("6. Mengembalikan Mobil");
         System.out.println("================================");
     }
 
@@ -114,15 +114,44 @@ public class Main {
     public static void addCarOwner() {
         CarOwner carOwner = new CarOwner();
 
-        System.out.print("id : ");
-        carOwner.setId(scan.nextInt());
+        boolean validInput = false;
+        while (!validInput) {
+            try {
+                System.out.print("id : ");
+                carOwner.setId(scan.nextInt());
 
-        System.out.print("nama : ");
-        carOwner.setName(scan.next());
+                System.out.print("nama : ");
+                carOwner.setName(scan.next());
+
+                validInput = true; // Input valid, keluar dari loop
+            } catch (InputMismatchException e) {
+                System.out.println("Salah inputan, Masukkan input yang valid.");
+                scan.next(); // Membersihkan buffer masukan
+            }
+        }
 
         bengkel.addCarOwner(carOwner);
     }
+    public static void addCar() {
+        Car car = new Car();
+        boolean validInput = false;
+        while (!validInput){
+            try {
+                System.out.print("id : ");
+                car.setId(scan.nextInt());
 
+                System.out.print("Merek : ");
+                car.setBrand(scan.next());
+
+                validInput = true;
+            }catch (InputMismatchException e){
+                System.out.println("Salah inputan, Masukkan inout yang valid");
+                scan.next();
+            }
+        }
+
+        bengkel.addCar(car);
+    }
     public static void serviceCar() {
         System.out.print("Id Pemilik Mobil  : ");
         int carOwnerId = scan.nextInt();
@@ -132,7 +161,6 @@ public class Main {
 
         bengkel.serviceCar(carId, carOwnerId);
     }
-
     public static void returnCar() {
         System.out.print("Id Pemilik Mobil : ");
         int carOwnerId = scan.nextInt();
@@ -142,17 +170,4 @@ public class Main {
 
         bengkel.returnCar(carId, carOwnerId);
     }
-    public static void addCar() {
-        Car car = new Car();
-
-        System.out.print("id : ");
-        car.setId(scan.nextInt());
-
-        System.out.print("Merek : ");
-        car.setBrand(scan.next());
-
-        bengkel.addCar(car);
-    }
-
 }
-

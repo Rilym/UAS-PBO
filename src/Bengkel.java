@@ -1,9 +1,9 @@
 import java.util.ArrayList;
-interface Borrowable {
+interface Balikin {
     void returnCar(int carId, int carOwnerId);
 }
 
-abstract class Bengkel implements Borrowable {
+abstract class Bengkel implements Balikin {
     public ArrayList<Car> cars = new ArrayList<>();
     public ArrayList<CarOwner> carOwners = new ArrayList<>();
 
