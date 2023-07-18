@@ -43,6 +43,8 @@ public class Main {
     }
 
     public static void showMenu() {
+        System.out.println("Selamat datang di bengkel Jawa");
+        System.out.println("");
         System.out.println("================================");
         System.out.println("1. List Mobil");
         System.out.println("2. list Pemilik Mobil");
@@ -100,12 +102,14 @@ public class Main {
     }
 
     public static void showCars() {
+        System.out.println("Mobil yang akan di service dan yang sudah diservice");
         for (Car car : bengkel.cars) {
             System.out.println(car.getId() + " " + car.getBrand());
         }
     }
 
     public static void showCarOwners() {
+        System.out.println("Pemilik mobil");
         for (CarOwner carOwner : bengkel.carOwners) {
             System.out.println(carOwner.getId() + " " + carOwner.getName());
         }
@@ -162,6 +166,8 @@ public class Main {
         bengkel.serviceCar(carId, carOwnerId);
     }
     public static void returnCar() {
+        System.out.println("Pastikan Id Mobil dengan Id Pemilik Mobil sama");
+        System.out.println("");
         System.out.print("Id Pemilik Mobil : ");
         int carOwnerId = scan.nextInt();
 

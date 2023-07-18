@@ -73,9 +73,9 @@ class CarWorkshop extends Bengkel {
     public void addCar(Car car) {
         if (!isCarIdExist(car.getId())) {
             this.cars.add(car);
-            System.out.println("Car successfully added");
+            System.out.println("Mobil sudah terdaftar di bengkel untuk service");
         } else {
-            System.out.println("Car with ID " + car.getId() + " already exists");
+            System.out.println("Mobil dengan Id  " + car.getId() + " telah digunakan");
         }
     }
 
