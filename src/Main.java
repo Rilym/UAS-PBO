@@ -56,33 +56,19 @@ public class Main {
     }
 
     public static void initBengkelData() {
-        Car car1 = new Car();
-        car1.setId(1);
-        car1.setBrand("Toyota");
+        Car car1 = new Car(1,"Toyota");
+        Car car2 = new Car(2,"Honda");
+        Car car3 = new Car(3, "BMW");
+        Car car4 = new Car(1, "daihatsu");
+        CarOwner carOwner1 = new CarOwner(1,"Niko");
 
-        Car car2 = new Car();
-        car2.setId(2);
-        car2.setBrand("Honda");
-
-        Car car3 = new Car();
-        car3.setId(3);
-        car3.setBrand("BMW");
-
-        CarOwner carOwner1 = new CarOwner();
-        carOwner1.setId(1);
-        carOwner1.setName("John");
-
-        CarOwner carOwner2 = new CarOwner();
-        carOwner2.setId(2);
-        carOwner2.setName("Mike");
-
-        CarOwner carOwner3 = new CarOwner();
-        carOwner3.setId(3);
-        carOwner3.setName("Sarah");
+        CarOwner carOwner2 = new CarOwner(2,"John");
+        CarOwner carOwner3 = new CarOwner(3,"Mugi");
 
         bengkel.cars.add(car1);
         bengkel.cars.add(car2);
         bengkel.cars.add(car3);
+        bengkel.cars.add(car4);
 
         bengkel.carOwners.add(carOwner1);
         bengkel.carOwners.add(carOwner2);
